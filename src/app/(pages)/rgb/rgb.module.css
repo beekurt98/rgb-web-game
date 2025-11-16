@@ -1,0 +1,10 @@
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  width: 800px;
+  margin: auto;
+  background-color: gray;
+}
