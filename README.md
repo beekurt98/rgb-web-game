@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RGB Color Guess Game
+
+My take on an interactive color-matching game built with Next.js and React, inspired by RGB Rush on Steam. Test your color perception by matching RGB values to recreate target colors.
+
+![RGB Color Guess Game](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js) ![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react) ![CSS Modules](https://img.shields.io/badge/CSS-Modules-pink?style=flat-square)
+
+## Features
+
+- **Modern UI** - Clean, dark-themed interface with smooth animations
+- **Custom Gradient Sliders** - Interactive RGB sliders with visual feedback
+- **Responsive Design** - Optimized for both mobile and desktop experiences
+- **Real-time Accuracy** - Instant feedback on how close your guess is
+- **Score Tracking** - Track your performance across 10 rounds
+- **Pure CSS** - No Tailwind, built with CSS Modules for maintainability
+
+## How to Play
+
+1. Observe the **Target** color displayed on screen
+2. Use the RGB sliders (Red, Green, Blue) to adjust your guess
+3. Watch the **Your Guess** box update in real-time
+4. Click **Submit Guess** to see your accuracy score
+5. Complete 10 rounds and track your average score
 
 ## Getting Started
 
-First, run the development server:
+### Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd rgb-web-game
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to start playing!
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: Next.js 16
+- **UI Library**: React 19
+- **Styling**: CSS Modules
+- **Fonts**: Spline Sans (Google Fonts)
+- **Icons**: Material Symbols
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+rgb-web-game/
+├── src/
+│   ├── app/
+│   │   ├── (pages)/rgb/      # Main game page
+│   │   ├── globals.css        # Global styles & theme
+│   │   └── layout.js          # Root layout
+│   ├── components/
+│   │   ├── ColorBox.jsx       # Color display
+│   │   ├── ColorInput.jsx     # Custom RGB slider
+│   │   ├── RgbBoxes.jsx       # Color comparison
+│   │   └── RgbInputs.jsx      # Controls container
+│   ├── hooks/
+│   │   └── useColors.jsx      # State management
+│   └── utils/
+│       ├── calculator.js      # Accuracy calculation
+│       └── helper.js          # Utility functions
+```
 
-## Deploy on Vercel
+## Key Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Custom RGB Sliders
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Gradient-filled tracks showing color intensity
+- Large clickable areas for optimal UX
+- Smooth thumb animations with hover effects
+- Works seamlessly on touch and mouse devices
+
+### Responsive Design
+
+- Mobile-first (320px+)
+- Tablet optimization (480px+)
+- Desktop enhancements (768px+)
+- Max-width container (640px) centered layout
+
+### Dark Theme
+
+- Eye-comfortable dark palette
+- Subtle glass-morphism effects
+- Carefully chosen contrast ratios
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- iOS Safari & Chrome Mobile
+
+## License
+
+MIT
+
+---
+
+Built with Next.js and React
