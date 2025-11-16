@@ -1,12 +1,13 @@
 "use client";
 import { useColors } from "@/hooks/useColors";
-import styles from "../app/page.module.css";
+import styles from "../app/(pages)/rgb/rgb.module.css";
 import ColorInput from "./ColorInput";
 import { calculateResultPercentage } from "@/utils/calculator";
 
 export default function RgbInputs() {
   const {
     targetColors,
+    currrentPercentage,
     setCurrrentPercentage,
     playerColors,
     setPlayerColors,
@@ -33,7 +34,7 @@ export default function RgbInputs() {
 
   return (
     <>
-      <div className={styles.colorValuesContainer}>
+      <div className={styles.slidersSection}>
         <ColorInput
           val={playerColors.red}
           func={setPlayerColors}
@@ -49,7 +50,16 @@ export default function RgbInputs() {
           func={setPlayerColors}
           color={"blue"}
         />
-        <button onClick={() => handleResult()}>Let's See</button>
+      </div>
+
+      <div className={styles.footer}>
+        <div className={styles.accuracySection}>
+          <p className={styles.accuracyLabel}>Accuracy</p>
+          <p className={styles.accuracyValue}>{Math.round(currrentPercentage)}%</p>
+        </div>
+        <button className={styles.submitButton} onClick={() => handleResult()}>
+          Submit Guess
+        </button>
       </div>
     </>
   );

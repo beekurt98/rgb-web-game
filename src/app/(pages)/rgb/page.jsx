@@ -19,7 +19,7 @@ export default function Rgb() {
     blue: 0,
   });
   const [currrentPercentage, setCurrrentPercentage] = useState(0);
-  const [colorNumber, setColorNumber] = useState(0);
+  const [colorNumber, setColorNumber] = useState(1);
   const [scoreAverage, setScoreAverage] = useState(0);
 
   useEffect(() => {
@@ -27,7 +27,6 @@ export default function Rgb() {
     const green = randomNum(0, 255);
     const blue = randomNum(0, 255);
     setTargetColors({ red, green, blue });
-    console.log(targetColors);
   }, [colorNumber]);
 
   return (
@@ -44,29 +43,40 @@ export default function Rgb() {
         setScoreAverage,
       }}
     >
-      <main className={styles.main}>
-        <div className={styles.pageHeader}>
-          <p>B</p>
-          <h1>RGB</h1>
-          <p>S</p>
-        </div>
-        <div className={styles.roundInfo}>
-          <div>
-            <p>Round</p>
-            <p>{colorNumber}</p>
+      <div className={styles.container}>
+        {/* TopAppBar */}
+        <div className={styles.header}>
+          <div className={styles.headerIcon}>
+            <span className="material-symbols-outlined" style={{ color: '#9ca3af' }}>
+              arrow_back
+            </span>
           </div>
-          <div>
-            <p>Avg Score</p>
-            <p>{Math.floor(scoreAverage)}</p>
-          </div>
+          <h1 className={styles.headerTitle}>Color Guess</h1>
+          <div className={styles.headerSpacer}></div>
         </div>
-        <RgbBoxes />
-        <RgbInputs />
-        <p>
-          rgb {targetColors.red}, {targetColors.green}, {targetColors.blue}
-        </p>
-        <p>{currrentPercentage}</p>
-      </main>
+
+        <main className={styles.main}>
+          {/* Stats Section */}
+          <div className={styles.stats}>
+            <div className={styles.statCard}>
+              <p className={styles.statLabel}>Round</p>
+              <p className={styles.statValue}>{colorNumber} / 10</p>
+            </div>
+            <div className={styles.statCard}>
+              <p className={styles.statLabel}>Avg. Score</p>
+              <p className={styles.statValue}>{Math.floor(scoreAverage)}%</p>
+            </div>
+          </div>
+
+          {/* Color Comparison Section */}
+          <RgbBoxes />
+
+          {/* Sliders Section */}
+          <RgbInputs />
+
+          <div className={styles.spacer}></div>
+        </main>
+      </div>
     </RgbContext.Provider>
   );
 }

@@ -1,15 +1,14 @@
 "use client";
-import styles from "../app/page.module.css";
+import styles from "../app/(pages)/rgb/rgb.module.css";
 
 export default function ColorBox({
   redValue,
   greenValue,
   blueValue,
-  classTag,
 }) {
   return (
     <div
-      className={styles[classTag]}
+      className={styles.colorBox}
       style={{
         backgroundColor: `rgb(${redValue}, ${greenValue}, ${blueValue})`,
       }}

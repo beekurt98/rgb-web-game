@@ -1,10 +1,275 @@
-.pageHeader {
+.container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* TopAppBar */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  position: sticky;
+  top: 0;
+  background-color: rgba(248, 246, 248, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+body.dark .header {
+  background-color: rgba(31, 16, 34, 0.8);
+}
+
+.headerIcon {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.headerTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  flex: 1;
+  text-align: center;
+  color: var(--text-light);
+}
+
+body.dark .headerTitle {
+  color: var(--text-dark);
+}
+
+.headerSpacer {
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+}
+
+/* Main Content */
 .main {
-  width: 800px;
-  margin: auto;
-  background-color: gray;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 1.5rem 2rem;
+    gap: 2rem;
+  }
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .stats {
+    gap: 1.5rem;
+  }
+}
+
+.statCard {
+  display: flex;
+  min-width: 158px;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background-color: rgba(229, 229, 229, 0.5);
+}
+
+@media (min-width: 768px) {
+  .statCard {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+body.dark .statCard {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--gray-500);
+}
+
+body.dark .statLabel {
+  color: #9ca3af;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--gray-900);
+}
+
+body.dark .statValue {
+  color: white;
+}
+
+/* Color Comparison Section */
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .colorGrid {
+    gap: 1.5rem;
+  }
+}
+
+.colorColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.colorLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+body.dark .colorLabel {
+  color: #9ca3af;
+}
+
+.colorBox {
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+/* Sliders Section */
+.slidersSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .slidersSection {
+    gap: 1.25rem;
+    padding-top: 0.75rem;
+  }
+}
+
+/* Spacer */
+.spacer {
+  flex-grow: 1;
+}
+
+/* Feedback & Action Section */
+.footer {
+  position: sticky;
+  bottom: 0;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+  }
+}
+
+body.light .footer {
+  background-color: var(--background-light);
+}
+
+body.dark .footer {
+  background-color: var(--background-dark);
+}
+
+.accuracySection {
+  text-align: center;
+}
+
+.accuracyLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+body.dark .accuracyLabel {
+  color: #9ca3af;
+}
+
+.accuracyValue {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--gray-900);
+}
+
+body.dark .accuracyValue {
+  color: white;
+}
+
+.submitButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background-color: var(--primary);
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(205, 43, 238, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+@media (min-width: 768px) {
+  .submitButton {
+    padding: 1.125rem 2rem;
+    font-size: 1.0625rem;
+  }
+}
+
+.submitButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 15px 20px -3px rgba(205, 43, 238, 0.4);
+}
+
+.submitButton:active {
+  transform: translateY(0);
 }
