@@ -27,7 +27,7 @@ export default function RgbInputs() {
     setColorNumber((prev) => prev + 1);
     const newColorNum = colorNumber + 1;
     const oldScoreAvg = scoreAverage;
-    const newScoreAvg = (oldScoreAvg + perc) / newColorNum;
+    const newScoreAvg = (oldScoreAvg + perc) / (newColorNum - 1);
     setScoreAverage(newScoreAvg);
     setPlayerColors((prev) => ({ red: 0, green: 0, blue: 0 }));
   }
@@ -55,7 +55,9 @@ export default function RgbInputs() {
       <div className={styles.footer}>
         <div className={styles.accuracySection}>
           <p className={styles.accuracyLabel}>Accuracy</p>
-          <p className={styles.accuracyValue}>{Math.round(currrentPercentage)}%</p>
+          <p className={styles.accuracyValue}>
+            {Math.round(currrentPercentage)}%
+          </p>
         </div>
         <button className={styles.submitButton} onClick={() => handleResult()}>
           Submit Guess
